@@ -1,11 +1,11 @@
-const API = "http://api.tvmaze.com/shows";
+const API = "https://api.tvmaze.com/shows";
 const element = document.getElementById("tvshows");
 
 function getData(urlApi) {
   fetch(urlApi).then(response => {
     response.json().then(data => {
       let output = data
-        .slice(0, 16)
+        .slice(0, 14)
         .map(function(show) {
           return `
           <article class="show-card">
@@ -15,6 +15,7 @@ function getData(urlApi) {
           `;
         })
         .join("");
+      console.log(output);
       element.innerHTML = output;
     });
   });
